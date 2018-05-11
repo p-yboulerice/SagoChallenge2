@@ -1,4 +1,4 @@
-﻿namespace Project {
+﻿namespace Mechanic {
 
     using System.Collections;
     using System.Collections.Generic;
@@ -32,7 +32,7 @@
         [Header("Interaction")]
         [SerializeField]
         private float draggingSpeed;
-
+        
         // ---
 
         // Defaults

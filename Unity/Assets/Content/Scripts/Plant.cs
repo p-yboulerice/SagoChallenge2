@@ -10,40 +10,37 @@
 	/// Handles a plant that can be pulled out of the ground and regrows
 	/// </summary>
 	public class Plant : MonoBehaviour {
-       
+
 		private TouchAreaObserver touchAreaObserver;
 		private LineRenderer lineRenderer;
 		private Touch Touch;
 
-        // States
-		private enum PlantState
-		{
+		// States
+		private enum PlantState {
 			Idle,
-            Growing,
-            Pulling,
-            Plucked
+			Growing,
+			Pulling,
+			Plucked,
+            Wither
 		}
 
-		[SerializeField]
 		private PlantState m_state;
 
-		private PlantState state
-		{
-			get{
+		private PlantState state {
+			get {
 				return m_state;
 			}
-			set{
+			set {
 				m_state = value;
-				if (state == PlantState.Growing)
-				{
+				if (state == PlantState.Growing) {
 					StartCoroutine(Growing());
 				}
-				else
-				{
-					if (state == PlantState.Plucked) {
+				else if (state == PlantState.Plucked) {
 						StartCoroutine(Plucked());
-                    }
 				}
+				else if (state == PlantState.Wither) {
+					StartCoroutine(Withering());
+                }
 			}
 		}
 
@@ -57,11 +54,13 @@
 		[SerializeField]
 		private Transform flower;
 
+		[Space]
+		[Header("Interactions")]
 		[SerializeField]
 		private float touchSpeed;
 
 		[SerializeField]
-		[Range (1, 20)]
+		[Range(1, 20)]
 		private float growSpeed;
 
 		[SerializeField]
@@ -80,107 +79,117 @@
 		}
 
 		private void Awake() {
-         
-            // Components
-			touchAreaObserver = GetComponent<TouchAreaObserver>();
-			lineRenderer = GetComponent<LineRenderer>();                  
 
-            // Line Renderer
+			// Components
+			touchAreaObserver = GetComponent<TouchAreaObserver>();
+			lineRenderer = GetComponent<LineRenderer>();
+
+			// Line Renderer
 			//lineRenderer.SetPosition(0, transform.position);
 			//lineRenderer.SetPosition(1, transform.position);
 
 			// Coroutines
 			state = PlantState.Growing;
 		}
-        
+
 		private void OnEnable() {
 			// Touches
-            touchAreaObserver.TouchUpDelegate += OnTouchUp;
+			touchAreaObserver.TouchUpDelegate += OnTouchUp;
 			touchAreaObserver.TouchDownDelegate += OnTouchDown;
 		}
 
 		private void OnDisable() {
 			// Touches
-            touchAreaObserver.TouchUpDelegate -= OnTouchUp;
-            touchAreaObserver.TouchDownDelegate -= OnTouchDown;
+			touchAreaObserver.TouchUpDelegate -= OnTouchUp;
+			touchAreaObserver.TouchDownDelegate -= OnTouchDown;
 		}
 
+        // FLower target positions for lerp
+		private Vector2 touchPosition = Vector2.zero;
+
+		private Vector2 targetFlowerPosition;
 		private Vector2 targetStemPosition;
 		private Vector2 targetRootPosition;
 
-		private void Update() {
 
-			switch (state){
-				case PlantState.Pulling :
-					
+		private void Update() {         
+
+			if (Touch != null){
+				// Get touch position without z axis
+                touchPosition = GetTouchPosition();
+
+                // Get touch position in local space for line renderer
+                touchPosition = transform.InverseTransformPoint(touchPosition);
+			}         
+
+			switch (state) {
+
+                case PlantState.Pulling:
+
 					if (this.Touch != null) {
-
-						// Get touch position without z axis
-						Vector2 touchPosition = GetTouchPosition();
-
-                        // Get touch position in local space for line renderer
-						touchPosition = transform.InverseTransformPoint(touchPosition);                  
-
-                        // Stem Movement
-						if (Vector2.Distance(touchPosition, lineRenderer.GetPosition(0)) > 1){
+						// Stem Movement
+						if (Vector2.Distance(touchPosition, lineRenderer.GetPosition(0)) > 1) {
 							Vector2 direction = touchPosition - (Vector2)lineRenderer.GetPosition(0);
-                            direction = direction.normalized;
+							direction = direction.normalized;
 							targetStemPosition = direction + (direction * Vector2.Distance(lineRenderer.GetPosition(0), touchPosition) * 0.2f);
 						}
-						else
-						{
+						else {
 							// Follow mouse position
 							targetStemPosition = touchPosition;
 						}
 
-                        // Check if plucked
-						if (Vector2.Distance(lineRenderer.GetPosition(1), touchPosition) > pluckDistance){
+						// Check if plucked
+						if (Vector2.Distance(lineRenderer.GetPosition(1), touchPosition) > pluckDistance) {
 							state = PlantState.Plucked;
 						}
-                    }
-					else
-					{
+					}
+					else {
 						state = PlantState.Idle;
 					}
 
 					flower.localPosition = Vector2.Lerp(lineRenderer.GetPosition(1), targetStemPosition, touchSpeed * Time.deltaTime);
-					lineRenderer.SetPosition(1, Vector2.Lerp(lineRenderer.GetPosition(1), targetStemPosition, touchSpeed * Time.deltaTime));               
+					lineRenderer.SetPosition(1, Vector2.Lerp(lineRenderer.GetPosition(1), targetStemPosition, touchSpeed * Time.deltaTime));
 
 					break;
+
 				case PlantState.Idle:
 
+					flower.localPosition = Vector2.Lerp(lineRenderer.GetPosition(1), Vector2.up, touchSpeed * Time.deltaTime);
 					lineRenderer.SetPosition(1, Vector2.Lerp(lineRenderer.GetPosition(1), Vector2.up, touchSpeed * Time.deltaTime));
 
-                    if (this.Touch != null) {
-						state = PlantState.Pulling;
-                    }
-
-                    break;
-				case PlantState.Plucked :
 					if (this.Touch != null) {
-
-
-					}
+						state = PlantState.Pulling;
+					}        
 
 					break;
-			}         
+
+				case PlantState.Plucked:
+					if (this.Touch != null) {
+						targetFlowerPosition = touchPosition;
+						flower.localPosition = Vector2.Lerp(flower.localPosition, targetFlowerPosition, touchSpeed * 2 * Time.deltaTime);           
+					}
+					else
+					{
+						state = PlantState.Wither;
+					}  
+
+					break;
+			}
 		}
 
 
 		// Growing
 
-		private IEnumerator Growing()
-		{
+		private IEnumerator Growing() {
 			float timeElapsed = 0;
 
 			// ---
 			yield return new WaitForSeconds(2);
 
-			while(timeElapsed <= 1)
-			{
+			while (timeElapsed <= 1) {
 				timeElapsed += Time.deltaTime * growSpeed;
 				lineRenderer.SetPosition(1, Vector2.Lerp(Vector2.zero, Vector2.up, growAnimationCurve.Evaluate(timeElapsed)));
-				flower.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, transform.position.y + 1), growAnimationCurve.Evaluate(timeElapsed));
+				flower.localPosition = Vector2.Lerp(Vector2.zero, Vector2.up, growAnimationCurve.Evaluate(timeElapsed));
 				flower.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, growAnimationCurve.Evaluate(timeElapsed));
 				yield return 0;
 			}
@@ -188,29 +197,45 @@
 			state = PlantState.Idle;
 		}
 
+        // Plucked
+
 		private IEnumerator Plucked() {
-            float timeElapsed = 0;
+			float timeElapsed = 0;
 			Vector2 startingPosition = lineRenderer.GetPosition(1);
 
-            while (timeElapsed <= 1) {
-                timeElapsed += Time.deltaTime * growSpeed;
+			while (timeElapsed <= 1) {
+				timeElapsed += Time.deltaTime * growSpeed;
 				lineRenderer.SetPosition(1, Vector2.Lerp(startingPosition, Vector2.zero, growAnimationCurve.Evaluate(timeElapsed)));
+				yield return 0;
+			}
+		}
+
+        // Withering
+
+		private IEnumerator Withering() {
+            float timeElapsed = 0;
+            Vector2 startingPosition = lineRenderer.GetPosition(1);
+
+            while (timeElapsed <= 1) {
+                timeElapsed += Time.deltaTime * 5;
+				flower.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, growAnimationCurve.Evaluate(timeElapsed));
                 yield return 0;
             }
+
+			state = PlantState.Growing;
         }
 
 		// Touches
 
-		public void OnTouchDown(TouchArea touchArea, Touch touch){
+		public void OnTouchDown(TouchArea touchArea, Touch touch) {
 			this.Touch = touch;
 		}
 
-		public void OnTouchUp(TouchArea touchArea, Touch touch){
+		public void OnTouchUp(TouchArea touchArea, Touch touch) {
 			this.Touch = null;
 		}
 
-		private Vector2 GetTouchPosition()
-		{
+		private Vector2 GetTouchPosition() {
 			return new Vector2(this.Camera.ScreenToWorldPoint(this.Touch.Position).x, this.Camera.ScreenToWorldPoint(this.Touch.Position).y);
 		}
 

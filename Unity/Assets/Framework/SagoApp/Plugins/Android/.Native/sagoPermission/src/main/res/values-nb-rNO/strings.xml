@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Neste</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Noen tillatelser er nødvendige</string>
+    <string name="permissions_multiple_permission_request">Våre apper trenger enkelte tillatelser for å fungere ordentlig. Ditt personvern er vår viktigste prioritet. Vennligst les vår personvernpolitikk for å lære mer. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Våre apper trenger én eller flere tillatelser til enheten din for å fungere ordentlig. Vennligst gi tilgang under Innstillinger > Apper > %1$s > Tillatelser</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

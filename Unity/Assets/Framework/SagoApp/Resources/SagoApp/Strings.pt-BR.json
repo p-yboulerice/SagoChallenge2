@@ -1,0 +1,40 @@
+{
+	"localizedStrings": [
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:53",
+			"comment": "Please turn on WiFi to continue downloading!",
+			"key": "NavigateToErrorSceneController.Error.Text.OdrErrorNoWiFi",
+			"plural": false,
+			"values": [
+				"Por favor, ligue WiFi para continuar baixando!"
+			]
+		},
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:59",
+			"comment": "Oops. No internet connection!",
+			"key": "NavigateToErrorSceneController.Error.Text.OdrErrorNoInternet",
+			"plural": false,
+			"values": [
+				"Ops. Sem conexão à Internet!"
+			]
+		},
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:65",
+			"comment": "No space left. Try clearing some unused apps!",
+			"key": "NavigateToErrorSceneController.Error.Text.LowDiskSpace",
+			"plural": false,
+			"values": [
+				"Não há mais espaço. Tente limpar alguns aplicativos não utilizados!"
+			]
+		},
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:71",
+			"comment": "Something went wrong. Please try again!",
+			"key": "NavigateToErrorSceneController.Error.Text.Default",
+			"plural": false,
+			"values": [
+				"Algo deu errado. Por favor tente outra vez!"
+			]
+		}
+	]
+}

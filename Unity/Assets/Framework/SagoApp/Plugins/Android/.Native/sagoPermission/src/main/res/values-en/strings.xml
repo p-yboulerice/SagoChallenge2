@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Next</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Some permissions required</string>
+    <string name="permissions_multiple_permission_request">Our apps require access to certain permissions to function properly. Your privacy is our number one priority. To learn more, please read our privacy policy. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Our apps require access to one or more permissions on your device to function properly. Please allow access under Settings > Apps > %1$s > Permissions</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

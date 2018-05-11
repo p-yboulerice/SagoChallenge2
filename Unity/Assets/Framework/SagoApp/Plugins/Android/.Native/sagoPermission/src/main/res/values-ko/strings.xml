@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">다음 것</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">몇몇 권한이 필요합니다</string>
+    <string name="permissions_multiple_permission_request">저희 앱이 올바르게 작동하려면 특정한 접근 권한이 필요합니다. 귀하의 개인정보 보호는 저희의 최우선 사항입니다. 더 자세히 알아보려면, 저희 개인정보 처리방침을 읽어주십시오. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">저희 앱이 올바르게 작동하려면 귀하의 디바이스에서 하나 이상의 접근 권한이 필요합니다. 설정 > 앱 > %1$s > 권한으로 이동하여 접근 권한을 허용해 주십시오</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

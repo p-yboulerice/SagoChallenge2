@@ -1,0 +1,126 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From GooglePlayDownloader:
+* AndroidManifest.xml.meta
+* ant.properties
+* ant.properties.meta
+* assets.meta
+* bin.meta
+* build.xml
+* build.xml.meta
+* gen.meta
+* proguard.cfg.meta
+* project.properties.meta
+* readme.txt
+* readme.txt.meta
+* res.meta
+* src.meta
+From SagoApp:
+* AndroidManifest.xml.meta
+* assets.meta
+* bin.meta
+* gen.meta
+* lint.xml.meta
+* proguard-project.txt
+* proguard-project.txt.meta
+* project.properties.meta
+* res.meta
+* src.meta
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In SagoApp:
+* AndroidManifest.xml => sagoApp/src/main/AndroidManifest.xml
+* assets/ => sagoApp/src/main/assets
+* lint.xml => sagoApp/lint.xml
+* res/ => sagoApp/src/main/res/
+* src/ => sagoApp/src/main/java/
+* src/com.meta => sagoApp/src/main/resources/com.meta
+* src/com/sagosago.meta => sagoApp/src/main/resources/com/sagosago.meta
+* src/com/sagosago/sagoapp.meta => sagoApp/src/main/resources/com/sagosago/sagoapp.meta
+* src/com/sagosago/sagoapp/Bootstrap.java.meta => sagoApp/src/main/resources/com/sagosago/sagoapp/Bootstrap.java.meta
+* src/com/sagosago/sagoapp/Immersive.java.meta => sagoApp/src/main/resources/com/sagosago/sagoapp/Immersive.java.meta
+In GooglePlayDownloader:
+* AndroidManifest.xml => googlePlayDownloader/src/main/AndroidManifest.xml
+* assets/ => googlePlayDownloader/src/main/assets
+* proguard.cfg => googlePlayDownloader/proguard.cfg
+* res/ => googlePlayDownloader/src/main/res/
+* src/ => googlePlayDownloader/src/main/java/
+* src/com.meta => googlePlayDownloader/src/main/resources/com.meta
+* src/com/google.meta => googlePlayDownloader/src/main/resources/com/google.meta
+* src/com/google/android.meta => googlePlayDownloader/src/main/resources/com/google/android.meta
+* src/com/google/android/vending.meta => googlePlayDownloader/src/main/resources/com/google/android/vending.meta
+* src/com/google/android/vending/expansion.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion.meta
+* src/com/google/android/vending/expansion/downloader.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader.meta
+* src/com/google/android/vending/expansion/downloader/Constants.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/Constants.java.meta
+* src/com/google/android/vending/expansion/downloader/DownloadProgressInfo.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/DownloadProgressInfo.java.meta
+* src/com/google/android/vending/expansion/downloader/DownloaderClientMarshaller.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/DownloaderClientMarshaller.java.meta
+* src/com/google/android/vending/expansion/downloader/DownloaderServiceMarshaller.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/DownloaderServiceMarshaller.java.meta
+* src/com/google/android/vending/expansion/downloader/Helpers.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/Helpers.java.meta
+* src/com/google/android/vending/expansion/downloader/IDownloaderClient.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/IDownloaderClient.java.meta
+* src/com/google/android/vending/expansion/downloader/IDownloaderService.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/IDownloaderService.java.meta
+* src/com/google/android/vending/expansion/downloader/IStub.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/IStub.java.meta
+* src/com/google/android/vending/expansion/downloader/SystemFacade.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/SystemFacade.java.meta
+* src/com/google/android/vending/expansion/downloader/impl.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl.meta
+* src/com/google/android/vending/expansion/downloader/impl/AndroidHttpClient.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/AndroidHttpClient.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/CustomIntentService.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/CustomIntentService.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/CustomNotificationFactory.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/CustomNotificationFactory.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/DownloadInfo.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/DownloadInfo.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/DownloadNotification.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/DownloadNotification.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/DownloadThread.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/DownloadThread.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/DownloaderService.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/DownloaderService.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/DownloadsDB.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/DownloadsDB.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/HttpDateTime.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/HttpDateTime.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/V14CustomNotification.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/V14CustomNotification.java.meta
+* src/com/google/android/vending/expansion/downloader/impl/V3CustomNotification.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/expansion/downloader/impl/V3CustomNotification.java.meta
+* src/com/google/android/vending/licensing.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing.meta
+* src/com/google/android/vending/licensing/AESObfuscator.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/AESObfuscator.java.meta
+* src/com/google/android/vending/licensing/APKExpansionPolicy.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/APKExpansionPolicy.java.meta
+* src/com/google/android/vending/licensing/DeviceLimiter.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/DeviceLimiter.java.meta
+* src/com/google/android/vending/licensing/ILicenseResultListener.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/ILicenseResultListener.java.meta
+* src/com/google/android/vending/licensing/ILicensingService.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/ILicensingService.java.meta
+* src/com/google/android/vending/licensing/LicenseChecker.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/LicenseChecker.java.meta
+* src/com/google/android/vending/licensing/LicenseCheckerCallback.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/LicenseCheckerCallback.java.meta
+* src/com/google/android/vending/licensing/LicenseValidator.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/LicenseValidator.java.meta
+* src/com/google/android/vending/licensing/NullDeviceLimiter.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/NullDeviceLimiter.java.meta
+* src/com/google/android/vending/licensing/Obfuscator.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/Obfuscator.java.meta
+* src/com/google/android/vending/licensing/Policy.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/Policy.java.meta
+* src/com/google/android/vending/licensing/PreferenceObfuscator.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/PreferenceObfuscator.java.meta
+* src/com/google/android/vending/licensing/ResponseData.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/ResponseData.java.meta
+* src/com/google/android/vending/licensing/ServerManagedPolicy.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/ServerManagedPolicy.java.meta
+* src/com/google/android/vending/licensing/StrictPolicy.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/StrictPolicy.java.meta
+* src/com/google/android/vending/licensing/ValidationException.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/ValidationException.java.meta
+* src/com/google/android/vending/licensing/util.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/util.meta
+* src/com/google/android/vending/licensing/util/Base64.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/util/Base64.java.meta
+* src/com/google/android/vending/licensing/util/Base64DecoderException.java.meta => googlePlayDownloader/src/main/resources/com/google/android/vending/licensing/util/Base64DecoderException.java.meta
+* src/com/sagosago.meta => googlePlayDownloader/src/main/resources/com/sagosago.meta
+* src/com/sagosago/googleplaydownloader.meta => googlePlayDownloader/src/main/resources/com/sagosago/googleplaydownloader.meta
+* src/com/sagosago/googleplaydownloader/GooglePlayAlarmReceiver.java.meta => googlePlayDownloader/src/main/resources/com/sagosago/googleplaydownloader/GooglePlayAlarmReceiver.java.meta
+* src/com/sagosago/googleplaydownloader/GooglePlayDownloaderActivity.java.meta => googlePlayDownloader/src/main/resources/com/sagosago/googleplaydownloader/GooglePlayDownloaderActivity.java.meta
+* src/com/sagosago/googleplaydownloader/GooglePlayDownloaderProgressBar.java.meta => googlePlayDownloader/src/main/resources/com/sagosago/googleplaydownloader/GooglePlayDownloaderProgressBar.java.meta
+* src/com/sagosago/googleplaydownloader/GooglePlayDownloaderService.java.meta => googlePlayDownloader/src/main/resources/com/sagosago/googleplaydownloader/GooglePlayDownloaderService.java.meta
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

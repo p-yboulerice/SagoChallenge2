@@ -1,0 +1,7 @@
+/* Russian App Name */
+
+"CFBundleName" = "Template";
+"CFBundleDisplayName" = "Template";
+
+/* Settings */
+"NSCameraUsageDescription" = "Для этой функции необходим защищённый доступ к Вашей камере.";

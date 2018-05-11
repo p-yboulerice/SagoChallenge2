@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+archive_path = ARGV[0]
+
+export_path = ARGV[1]
+
+# If this path argument has not been provided, then we will just create
+# exportOptions.plist file at where this script is being executed.
+path_to_export_options_plist = ARGV[2]
+
+
+
+
+
+def generate_xcodebuild_export_archive_command( archivePath, exportPath, pathToExportOptionsPlist )
+	export_options_plist_file_name = "exportOptions.plist"
+
+	return "xcodebuild -exportArchive -archivePath '#{archivePath}' -exportOptionsPlist \
+		'#{pathToExportOptionsPlist}/#{export_options_plist_file_name}' -exportPath '#{exportPath}'"
+end
+
+
+
+xcodebuild_export_archive_command = generate_xcodebuild_export_archive_command( archive_path, export_path, path_to_export_options_plist )
+system( xcodebuild_export_archive_command )

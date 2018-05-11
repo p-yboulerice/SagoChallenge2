@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	  <!-- Please do not modify this section of the file manually, it will be overwritten from Google Play platform settings -->
+      <string name="google_play_license_public_key"></string>
+      <string name="google_play_use_expansion_file">false</string>
+
+      <string name="google_play_debug_expansion_file">false</string>
+      <!-- End of Google Play Product Info settings -->
+</resources>

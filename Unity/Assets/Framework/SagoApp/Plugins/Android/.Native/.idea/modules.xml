@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.Native.iml" filepath="$PROJECT_DIR$/.Native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/googlePlayDownloader/googlePlayDownloader.iml" filepath="$PROJECT_DIR$/googlePlayDownloader/googlePlayDownloader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/permissiontest/permissiontest.iml" filepath="$PROJECT_DIR$/permissiontest/permissiontest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sagoApp/sagoApp.iml" filepath="$PROJECT_DIR$/sagoApp/sagoApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sagoPermission/sagoPermission.iml" filepath="$PROJECT_DIR$/sagoPermission/sagoPermission.iml" />
+    </modules>
+  </component>
+</project>

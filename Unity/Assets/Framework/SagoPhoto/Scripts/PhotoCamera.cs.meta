@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 771da98a71d4c49e18f38b96ca12c465
+timeCreated: 1472829961
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - m_LogoPrefab: {fileID: 130868, guid: 1f596ea3357034f238a4302c420f03bd, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

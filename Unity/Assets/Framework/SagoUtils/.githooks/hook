@@ -1,0 +1,304 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require_relative 'sago_githook_utils.rb'
+
+class GitHook
+	
+	
+	def self.main
+		
+		@@options = Hash.new
+		@@options[:debug] = ARGV.include?('-d') || ARGV.include?('--debug')
+		@@options[:install] = ARGV.include?('-i') || ARGV.include?('--install')
+		
+		@@options[:argv] = ARGV.dup
+		@@options[:argv].delete('-d')
+		@@options[:argv].delete('--debug')
+		@@options[:argv].delete('-i')
+		@@options[:argv].delete('--install')
+		
+		Dir.chdir project_root do
+			if @@options[:install]
+				install
+			else
+				run
+			end
+		end
+		
+	end
+	
+	def self.add name, order, proc
+		@@hooks[name] ||= Hash.new
+		@@hooks[name][proc] = order
+	end
+	
+	def self.debug msg
+		puts msg if @@options[:debug]
+	end
+	
+	def self.log msg
+		puts msg
+	end
+	
+	
+private
+	
+	@@debug = false
+	@@glob = "*.hook.rb"
+	@@hooks = nil
+	@@options = nil
+	
+	def self.install
+		
+		debug "install" 
+		
+		# define script path
+		script_path = __FILE__;
+		script_path = File.expand_path(script_path)
+		script_path = Pathname.new(script_path)
+		script_path_resolved = script_path.realpath rescue nil
+		debug "script_path = #{script_path}" 
+		debug "script_path_resolved = #{script_path_resolved}" 
+		
+		# define script dir
+		script_dir = script_path
+		script_dir = File.dirname(script_dir)
+		script_dir = Pathname.new(script_dir)
+		debug "script_dir = #{script_dir}" 
+		
+		# define install dir
+		install_dir = File.join(%x( git rev-parse --git-dir 2>&1 ).strip, 'hooks')
+		install_dir = File.expand_path(install_dir)
+		install_dir = Pathname.new(install_dir)
+		debug "install_dir = #{install_dir}" 
+		
+		# define hook names
+		hook_names = %w( pre-commit )
+		
+		# symlink hooks
+		hook_names.each do |hook_name|
+				
+			# define install path
+			install_path = File.join(install_dir, hook_name)
+			install_path = Pathname.new(install_path)
+			install_path_resolved = install_path.realpath rescue nil
+			debug "install_path = #{install_path}" 
+			debug "install_path_resolved = #{install_path_resolved}" 
+			
+			# create install dir if does not exist.
+			Dir.mkdir(install_dir) unless File.directory?(install_dir)
+			
+			# check install path
+			if File.symlink? install_path and install_path_resolved.nil?
+				# remove invalid symlinks
+				File.delete(install_path)
+				debug "Deleted invalid symlink: #{install_path}" 
+			elsif File.symlink? install_path and install_path_resolved == script_path_resolved
+				# skip existing, valid symlinks
+				debug "Symlink already exists: #{install_path} -> #{script_path}" 
+				next
+			elsif File.exists? install_path
+				# don't overwrite existing files
+				raise "File exists: #{install_path}"
+			end
+			
+			# create symlink
+			Dir.chdir install_dir do
+				old_name = script_path.relative_path_from install_path.dirname
+				new_name = install_path.relative_path_from install_path.dirname
+				File.symlink(old_name, new_name)
+				debug "Created symlink: #{install_path} -> #{script_path}" 
+			end
+			
+		end
+		
+		# find script paths in script_dir
+		script_paths = Dir.glob File.join(script_dir, @@glob)
+		
+		# find script paths in script_args
+		script_args = @@options[:argv][1..-1]
+		unless script_args.nil?
+			# add files in directory matching glob
+			script_args.each do |arg|
+				other_dir = File.expand_path(arg.strip)
+				next if other_dir.nil?
+				next unless File.directory? other_dir
+				other_paths = Dir.glob(File.join(other_dir, @@glob))
+				other_paths.select! { |script_path| File.file? script_path }
+				script_paths.concat other_paths
+			end
+			# add files matching glob
+			script_args.each do |arg|
+				other_path = File.expand_path(arg.strip)
+				next if other_path.nil?
+				next unless File.file? other_path
+				next unless File.fnmatch? @@glob, other_path
+				script_paths.push other_path
+			end
+		end
+		
+		# symlink scripts
+		script_paths.uniq.each do |script_path|
+			
+			# define script name
+			script_name = File.basename(script_path)
+			debug "script_name = #{script_name}"
+			
+			# define script path
+			script_path = Pathname.new(script_path);
+			script_path_resolved = script_path.realpath rescue nil
+			debug "script_path = #{script_path}" 
+			debug "script_path_resolved = #{script_path_resolved}" 
+			
+			# check script path
+			unless File.file? script_path
+				# skip directories and symlinks in the script_dir
+				next
+			end
+			
+			# define install path
+			install_path = Pathname.new(File.join(install_dir, script_name));
+			install_path_resolved = install_path.realpath rescue nil
+			debug "install_path = #{install_path}" 
+			debug "install_path_resolved = #{install_path_resolved}" 
+			
+			# check install path
+			if File.symlink? install_path and install_path_resolved.nil?
+				# remove invalid symlinks
+				File.delete(install_path)
+				debug "Deleted invalid symlink: #{install_path}" 
+			elsif File.symlink? install_path and install_path_resolved == script_path_resolved
+				# skip existing, valid symlinks
+				debug "Symlink already exists: #{install_path} -> #{script_path}" 
+				next
+			elsif File.exists? install_path
+				# don't overwrite existing files
+				raise "File exists: #{install_path}"
+			end
+			
+			# create symlink
+			Dir.chdir install_dir do
+				old_name = script_path.relative_path_from install_path.dirname
+				new_name = install_path.relative_path_from install_path.dirname
+				File.symlink(old_name, new_name)
+				debug "Created symlink: #{install_path} -> #{script_path}" 
+			end
+			
+		end
+		
+	end
+	
+	def self.run
+		
+		debug "run" 
+		
+		# define hook name
+		hook_name = File.basename($0).downcase.gsub(/\W+/,'_').to_sym
+		debug "hook_name = #{hook_name}"
+		
+		# define script path
+		script_path = __FILE__;
+		script_path = File.expand_path(script_path)
+		script_path = Pathname.new(script_path)
+		script_path_resolved = script_path.realpath rescue nil
+		debug "script_path = #{script_path}"
+		debug "script_path_resolved = #{script_path_resolved}"
+		
+		# define script dir
+		script_dir = script_path
+		script_dir = File.dirname(script_dir)
+		script_dir = Pathname.new(script_dir)
+		debug "script_dir = #{script_dir}"
+		
+		# define install dir
+		install_dir = File.join(%x( git rev-parse --git-dir 2>&1 ).strip, 'hooks')
+		install_dir = File.expand_path(install_dir)
+		install_dir = Pathname.new(install_dir)
+		debug "install_dir = #{install_dir}"
+			
+		# require files
+		@@hooks = Hash.new
+		Dir.chdir install_dir do
+			Dir.glob @@glob do |file_name|
+				file_path = File.join(install_dir, file_name)
+				file_path = File.expand_path(file_path)
+				file_real_path = Pathname.new(file_path).realpath rescue nil
+				unless file_real_path.nil?
+					require file_path
+					debug "required: #{file_path}"
+				end
+			end
+		end
+		
+		# call procs
+		if @@hooks.has_key?(hook_name)
+			@@hooks[hook_name].sort_by { |key,value| value }.map { |key,value| key }.each do |proc|
+				proc.call
+				debug "called: #{proc}"
+			end
+		end
+		
+	end
+	
+	def self.is_repository_root project_root
+		
+		# define project_root
+		project_root = Pathname.new(project_root)
+		project_root_resolved = project_root.realpath rescue nil
+		return false if project_root_resolved.nil?
+		
+		# define repository_root
+		repository_root = nil
+		repository_root_resolved = nil
+		Dir.chdir project_root do
+			repository_root = %x( git rev-parse --show-toplevel 2>&1 ).strip
+			repository_root = Pathname.new(repository_root)
+			repository_root_resolved = repository_root.realpath rescue nil
+		end
+		
+		# compare project_root and repository_root
+		return false if repository_root_resolved.nil?
+		return false if repository_root_resolved != project_root_resolved
+		return true
+		
+	end
+	
+	def self.project_root
+		
+		# define project root
+		project_root = nil
+		if !ENV['GIT_WORK_TREE'].nil?
+			project_root = ENV['GIT_WORK_TREE']
+			project_root = File.expand_path(project_root)
+			project_root = Pathname.new(project_root)
+		elsif !ENV['GIT_DIR'].nil?
+			project_root = ENV['GIT_DIR']
+			project_root = File.expand_path(project_root)
+			project_root = File.dirname(project_root)
+			project_root = Pathname.new(project_root)
+		elsif !@@options[:argv][0].nil?
+			project_root = @@options[:argv][0]
+			project_root = File.expand_path(project_root)
+			project_root = Pathname.new(project_root)
+		end
+		
+		# check project root
+		if project_root.nil? or !File.directory?(project_root)
+			raise "Project directory is missing: #{project_root}."
+		end
+		
+		# check repository root
+		project_root_resolved = project_root.realpath rescue nil
+		raise "Project directory is missing: #{project_root}" if project_root_resolved.nil?
+		raise "Project directory is not the repository root: #{project_root}" unless is_repository_root(project_root_resolved)
+		
+		return project_root_resolved
+		
+	end
+	
+	
+end
+
+
+GitHook::main

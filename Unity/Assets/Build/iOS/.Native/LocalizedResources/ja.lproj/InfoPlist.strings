@@ -1,0 +1,7 @@
+/* Japanese App Name */
+
+"CFBundleName" = "Template";
+"CFBundleDisplayName" = "Template";
+
+/* Settings */
+"NSCameraUsageDescription" = "このアクティビティには、ご自分のカメラへのセキュアな接続が必要です。";

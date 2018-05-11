@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">下一步</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">需要开通权限</string>
+    <string name="permissions_multiple_permission_request">我们的应用程序需要开通某些权限之后才能正常运行。您的隐私是我们的首要任务。要了解更多信息，请阅读我们的隐私政策。 <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">我们的应用程序需要您设备上的一个或多个权限开通之后才能正常运行。请到设定页面里面允许开通>应用程序> %1$s>权限下访问</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

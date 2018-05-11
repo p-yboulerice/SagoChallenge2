@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47add2652ef74c8fa94ceffdd2ae823, type: 3}
+  m_Name: ProjectInfo
+  m_EditorClassIdentifier: 
+  m_ContentInfo: []
+  m_MainScene:
+    m_Guid: 941ab5b491d5340d297e8c6fa237d213
+  m_NavigateToContentScene:
+    m_Guid: cf0048ce6c3d342c98f48160888d9f90
+  m_NavigateToContentTransition: {fileID: 11400000, guid: e351f7bdd660e4972aca465aecbb0b37,
+    type: 2}
+  m_NavigateToContentLoadingSpinner: {fileID: 100000, guid: b83dfc0a5ad994b9d9f343a791779993,
+    type: 2}
+  m_NavigateToProjectScene:
+    m_Guid: 9c6c1890f6ba7413ea08404a7f202194
+  m_NavigateToProjectTransition: {fileID: 11400000, guid: e351f7bdd660e4972aca465aecbb0b37,
+    type: 2}
+  m_NavigateToErrorScene:
+    m_Guid: 24d303fe9b6aa456a86f4713ea485a78
+  m_NavigateToErrorTransition: {fileID: 11400000, guid: e351f7bdd660e4972aca465aecbb0b37,
+    type: 2}

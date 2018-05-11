@@ -1,0 +1,7 @@
+/* French App Name */
+
+"CFBundleName" = "Template";
+"CFBundleDisplayName" = "Template";
+
+/* Settings */
+"NSCameraUsageDescription" = "Cette activité nécessite l'accès sécuritaire à votre caméra.";

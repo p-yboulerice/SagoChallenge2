@@ -1,0 +1,9 @@
+*************** DO NOT REMOVE THIS FILE UNLESS APPLE FIXED ODR UPDATE BUG ********************
+
+We are running into strange ODR issues again, some of them similiar to SW-168 & SW-176. I a
+blind attempt to fix this issue I'm creating a second dummy file and initial install tag
+to see if that helps.
+
+@see odr_update_bug_fix.txt
+
+Colin - Mar 15 2018

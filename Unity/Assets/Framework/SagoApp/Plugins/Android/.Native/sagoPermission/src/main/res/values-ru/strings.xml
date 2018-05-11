@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Дальше</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Требуется разрешение</string>
+    <string name="permissions_multiple_permission_request">Для нормальной работы нашим приложениям необходим доступ к определённым разрешениям. Неприкосновенность Ваших данных - наша основная задача. Подробности Вы можете узнать из нашего Положения о конфиденциальности. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Для нормальной работы нашим приложениям необходим доступ к одному или нескольким разрешениям на Вашем устройстве. Просим предоставить доступ в разделе "Настройки" > "Приложения" > %1$s > "Разрешения"</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

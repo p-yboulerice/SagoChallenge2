@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a6c058c258544489ed1c4476a4469b, type: 3}
+  m_Name: SceneMap
+  m_EditorClassIdentifier: 
+  m_Values:
+  - Guid: 4cec572b910f746a5980b682ba6d90f2
+    AssetBundleName: 
+    AssetPath: Assets/Content/_Scenes_/Game.unity
+  - Guid: cf0048ce6c3d342c98f48160888d9f90
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Scenes/NavigateToContent.unity
+  - Guid: 24d303fe9b6aa456a86f4713ea485a78
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Scenes/NavigateToError.unity
+  - Guid: 9c6c1890f6ba7413ea08404a7f202194
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Scenes/NavigateToProject.unity
+  - Guid: 051be832161b44b979eae0561b97bcd4
+    AssetBundleName: 
+    AssetPath: Assets/Project/Scenes/Bootstrap.unity
+  - Guid: 4dd70b80835074bafb26ddc1bf16c36f
+    AssetBundleName: 
+    AssetPath: Assets/Project/Scenes/Intro.unity
+  - Guid: 941ab5b491d5340d297e8c6fa237d213
+    AssetBundleName: 
+    AssetPath: Assets/Project/Scenes/Title.unity

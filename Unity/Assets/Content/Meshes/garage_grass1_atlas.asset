@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!43 &4300000
+Mesh:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: garage_grass1_L0000_F0000
+  serializedVersion: 8
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 120
+    topology: 0
+    firstVertex: 0
+    vertexCount: 42
+    localAABB:
+      m_Center: {x: .000499993563, y: .174999982, z: 0}
+      m_Extent: {x: .250499994, y: .175000012, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_StreamCompression: 0
+  m_IsReadable: 0
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexBuffer: 0000010002000300020001000200030004000500040003000400050006000700080009000700090001000700010000000a000b000c000a000c000d000a000d000e000a000e0009000a00090008000c000b000f000c000f0010000c00100011000c00110012000b00130014000b00140015000b00150016000b00160017000b00170018000b00180019000b0019001a000b001a001b000b001b001c000b001c001d000b001d000f00140013001e0014001e001f0014001f002000140020002100220023002400250024002300240025002600270026002500260027002800210028002700280021002900200029002100
+  m_Skin: []
+  m_VertexData:
+    m_CurrentChannels: 5
+    m_VertexCount: 42
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 2
+      dimension: 1
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_Streams:
+    - channelMask: 5
+      offset: 0
+      stride: 16
+      dividerOp: 0
+      frequency: 0
+    - channelMask: 0
+      offset: 0
+      stride: 0
+      dividerOp: 0
+      frequency: 0
+    - channelMask: 0
+      offset: 0
+      stride: 0
+      dividerOp: 0
+      frequency: 0
+    - channelMask: 0
+      offset: 0
+      stride: 0
+      dividerOp: 0
+      frequency: 0
+    m_DataSize: 672
+    _typelessdata: 3008703ee97ccf3d0000000089b43cffd24d723e2edd923e0000000089b43cffeb51783e2ddd243e0000000089b43cff335e7a3e1704963e0000000089b43cff8c977e3e7293603e0000000089b43cffb39d7f3e7a14923e0000000089b43cff1283803e0481853e0000000089b43cff4f8d673e5c66663d0000000089b43cff45e15e3eab74d33c0000000089b43cff4060653e0e2d8a3e0000000089b43cff1704563ee9d6233c0000000089b43cff00d7a33cb81e05b30000000089b43cfff553e33d9018843d0000000089b43cff8fed3c3e4c62503e0000000089b43cff8095533e6be7773e0000000089b43cff4737093dd24d623e0000000089b43cff3d35863de6fb253e0000000089b43cff2987b63d0156ee3d0000000089b43cff6691d53d44b6ab3d0000000089b43cff5b643bbee9d6233c0000000089b43cffc74b37bea4703d3e0000000089b43cff1483c0bd4160e53d0000000089b43cff078195bdf753833e0000000089b43cffdcf986bd2db2973e0000000089b43cff5c3974bdc976a63e0000000089b43cfff5d25dbdcba1af3e0000000089b43cff85c04abd3333b33e0000000089b43cff80e926bd77beaf3e0000000089b43cffae9bc4bc8195a33e0000000089b43cffe19a443a51b88e3e0000000089b43cff5b643bbe0ad7233c0000000089b43cffa24542bed578c93c0000000089b43cffe4a54bbe723d4a3d0000000089b43cff508d53bed7a3543e0000000089b43cff000080bec1ca693e0000000089b43cffca767ebeea26713e0000000089b43cff806a7cbe7e3f553e0000000089b43cffd22277befb7e6e3e0000000089b43cff47b673be2085333e0000000089b43cfffed468bef4fd643e0000000089b43cff54e365bea69b043e0000000089b43cff208557be6bbcac3d0000000089b43cff
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BindPoses:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Colors:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+  m_LocalAABB:
+    m_Center: {x: .000499993563, y: .174999982, z: 0}
+    m_Extent: {x: .250499994, y: .175000012, z: 0}
+  m_MeshUsageFlags: 0
+  m_MeshOptimized: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123c08bc88e79415cad04421f91ddec3, type: 3}
+  m_Name: garage_grass1_atlas
+  m_EditorClassIdentifier: 

@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7313658315741F8EB21B87E6830EFBDEA955AD32",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "67B426631BC2140F7A507D81F09B5264F145DC74" : 0,
+    "7313658315741F8EB21B87E6830EFBDEA955AD32" : 0,
+    "6DBD6270BEDC5DD4DE48F21C908B3382E63FDA79" : 9223372036854775807,
+    "5D3A06A058226D065739B53871A0207A1C3022C2" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0E2AE7D9-CF6B-4FEF-B975-EE8D8AD1C6E4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "67B426631BC2140F7A507D81F09B5264F145DC74" : "",
+    "7313658315741F8EB21B87E6830EFBDEA955AD32" : "SagoBiz\/",
+    "6DBD6270BEDC5DD4DE48F21C908B3382E63FDA79" : "..\/..\/..",
+    "5D3A06A058226D065739B53871A0207A1C3022C2" : "..\/..\/..\/..\/Adjust\/ios_sdk"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SagoBiz",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Plugins\/iOS\/.Native\/src\/SagoBiz.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:adjust\/ios_sdk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5D3A06A058226D065739B53871A0207A1C3022C2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "sagosago.unfuddle.com:sagosago\/sagobiztest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "67B426631BC2140F7A507D81F09B5264F145DC74"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "sagosago.unfuddle.com:sagosago\/sagoapptest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6DBD6270BEDC5DD4DE48F21C908B3382E63FDA79"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "sagosago.unfuddle.com:sagosago\/sagobiz.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7313658315741F8EB21B87E6830EFBDEA955AD32"
+    }
+  ]
+}

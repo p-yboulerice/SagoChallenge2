@@ -1,0 +1,115 @@
+#! /usr/bin/env ruby
+
+require 'pathname'
+project_path = Pathname.new(ARGV[0]).realpath
+project_action = ARGV[1].downcase
+
+archive_action = %Q{
+
+	-- if xcode is running, close it
+	if application "Xcode" is running then
+		tell application "Xcode" to activate
+		tell application "System Events" to tell process "Xcode"
+			set stopItem to a reference to menu item "Stop" of menu 1 of menu bar item "Product" of menu bar 1
+			if enabled of stopItem is true
+				click stopItem
+				repeat until enabled of stopItem is false
+				end repeat
+			end if
+			tell application "Xcode" to quit
+		end tell
+	end if
+
+	-- wait until xcode has finished closing
+	repeat until application "Xcode" is not running
+	end repeat
+
+	-- open the project and bring it to the front
+	tell application "Xcode"
+		activate
+		open "#{project_path}"
+		activate
+	end tell
+
+	-- use system events to click the menu item we want
+	tell application "System Events" to tell process "Xcode"
+		set archiveItem to a reference to menu item "Archive" of menu 1 of menu bar item "Product" of menu bar 1
+		click archiveItem
+	end tell
+
+	-- return nothing to silence output
+	return
+
+}
+
+quit_action = %Q{
+
+	-- if xcode is running, close it
+	if application "Xcode" is running then
+		tell application "Xcode" to activate
+		tell application "System Events" to tell process "Xcode"
+			set stopItem to a reference to menu item "Stop" of menu 1 of menu bar item "Product" of menu bar 1
+			if enabled of stopItem is true
+				click stopItem
+				repeat until enabled of stopItem is false
+				end repeat
+			end if
+			tell application "Xcode" to quit
+		end tell
+	end if
+
+	-- wait until xcode has finished closing
+	repeat until application "Xcode" is not running
+	end repeat
+
+	-- return nothing to silence output
+	return
+
+}
+
+run_action = %Q{
+	
+	-- if xcode is running, close it
+	if application "Xcode" is running then
+		tell application "Xcode" to activate
+		tell application "System Events" to tell process "Xcode"
+			set stopItem to a reference to menu item "Stop" of menu 1 of menu bar item "Product" of menu bar 1
+			if enabled of stopItem is true
+				click stopItem
+				repeat until enabled of stopItem is false
+				end repeat
+			end if
+			tell application "Xcode" to quit
+		end tell
+	end if
+	
+	-- wait until xcode has finished closing
+	repeat until application "Xcode" is not running
+	end repeat
+	
+	-- open the project and bring it to the front
+	tell application "Xcode"
+		activate
+		open "#{project_path}"
+		activate
+	end tell
+	
+	-- use system events to click the menu item we want
+	tell application "System Events" to tell process "Xcode"
+		set runItem to a reference to menu item "Run" of menu 1 of menu bar item "Product" of menu bar 1
+		click runItem
+	end tell
+	
+	-- return nothing to silence output
+	return
+	
+}
+
+case project_action
+when "archive"
+	%x( osascript -e '#{archive_action}' )
+when "quit"
+	%x( osascript -e '#{quit_action}' )
+when "run"
+	%x( osascript -e '#{run_action}' )
+end

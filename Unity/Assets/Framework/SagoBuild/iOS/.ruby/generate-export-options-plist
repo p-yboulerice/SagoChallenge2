@@ -1,0 +1,137 @@
+#!/usr/bin/env ruby
+
+# plist GitHub Project: https://github.com/patsplat/plist
+require_relative 'lib/plist'
+require_relative 'lib/export-options-plist-generator'
+require_relative 'lib/provisioning-profile-reader'
+
+
+
+
+
+# Provisioning profile provided as first arg to match against.
+# Ex. Sago Mini Enterprise AdHoc Wildcard
+targeted_provisioning_profile_name = ARGV[0]
+
+# Code Signing Identity To Use For Signing
+# Ex. iPhone Distribution: Sago Sago Toys Inc. (SF8M4XHC7B)
+code_signing_identity = ARGV[1]
+
+# Bundle ID to sign the archive with a matching provisioning profile.
+# Ex. com.sagosago.Friends
+targeted_bundle_id = ARGV[2]
+
+# If this path argument has not been provided, then we will just create
+# exportOptions.plist file at where this script is being executed.
+path_to_export_options_plist = ARGV[3]
+
+# Value provided to override automatic setting of uploadBitcode value.
+should_upload_bitcode = ARGV[4]
+
+export_options_plist_file_name = "exportOptions.plist"
+
+provisioning_profile_path = "#{Dir.home}/Library/MobileDevice/Provisioning Profiles"
+
+dump_provisioning_profile_command = "security cms -D -i"
+
+provisioning_profile_file_name = ""
+
+
+
+
+
+
+
+
+if targeted_provisioning_profile_name.nil? || targeted_provisioning_profile_name.empty? ||
+	code_signing_identity.nil? || code_signing_identity.empty?
+	targeted_bundle_id.nil? || targeted_bundle_id.empty?
+
+	puts "Usage: ./generate-export-options-plist.rb <PROVISIONING_PROFILE_NAME> <CODE_SIGNING_IDENTITY> <APP_BUNDLE_ID> <PATH_TO_SAVE_EXPORT_OPTIONS_PLIST>(optional)"
+
+	exit 1
+
+end
+
+
+
+
+
+
+provisioning_profile_file_name = ProvisioningProfile.find_match( targeted_provisioning_profile_name )
+
+if !provisioning_profile_file_name.nil?
+
+	provisioning_profile = ProvisioningProfile.new( provisioning_profile_file_name )
+
+	exportOptions = ExportOptions.new
+	exportOptions.teamID = provisioning_profile.application_identifier_prefix
+	exportOptions.signingCertificate = code_signing_identity
+	exportOptions.shouldAutoSign = false
+	exportOptions.uploadSymbols = true
+	exportOptions.provisioningProfiles = { "#{targeted_bundle_id}" => "#{targeted_provisioning_profile_name}" }
+
+	# For Mac, provisioning profiles have extensions "provisionprofile", whereas for iOS, "mobileprovision."
+	if provisioning_profile.file_extension == 'provisionprofile'
+		if provisioning_profile.has_devices
+			exportOptions.method = 'development'
+			exportOptions.uploadBitcode = false
+		else
+			exportOptions.method = 'app-store'
+			exportOptions.uploadBitcode = true
+		end
+	else
+		if provisioning_profile.has_devices
+			if provisioning_profile.get_task_allow
+				exportOptions.method = 'development'
+				exportOptions.uploadBitcode = false
+			else
+				exportOptions.method = 'ad-hoc'
+				exportOptions.uploadBitcode = false
+			end
+		else
+			if provisioning_profile.is_enterprise
+				exportOptions.method = 'enterprise'
+				exportOptions.uploadBitcode = false
+			else
+				exportOptions.method = 'app-store'
+				exportOptions.uploadBitcode = true
+			end
+		end
+	end
+
+	# If a commnad-line argument has been provided for uploadBitcode then we override with this value.
+	if should_upload_bitcode != nil
+		exportOptions.uploadBitcode = should_upload_bitcode.downcase == "true" ? true : false
+	else
+		puts "No uploadBitcode value to override with. Going to set it automatically."
+	end
+
+	if path_to_export_options_plist.nil? || path_to_export_options_plist.empty?
+		path_to_export_options_plist = Dir.pwd
+	end
+
+	export_options_plist_full_path = "#{path_to_export_options_plist}/#{export_options_plist_file_name}"
+
+	if File.exist?(export_options_plist_full_path)
+		puts ""
+		puts "File Already Exists: #{export_options_plist_file_name}"
+		puts "At Path: #{path_to_export_options_plist}"
+		puts ""
+		puts "Going To Remove Existing File: #{export_options_plist_file_name}"
+		puts "At Path: #{path_to_export_options_plist}"
+		puts ""
+		`rm -f '#{export_options_plist_full_path}'`
+	end
+
+	File.open("#{export_options_plist_full_path}", 'w') { |f|
+		f.write(exportOptions.plist.to_plist)
+	}
+	
+end
+
+
+
+
+
+

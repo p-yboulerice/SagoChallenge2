@@ -1,0 +1,9 @@
+*************** DO NOT REMOVE THIS FILE UNLESS APPLE FIXED ODR UPDATE BUG ********************
+
+This file is being added to Xcode project using BuildProcessor and marked with initial install tag.
+Apple has confirmed that there is a bug with updating ODR if an app does not have any resources marked with initial install tag.
+So we are adding this file to allow users to load any ODRs after going through App Store's update process.
+
+Related bugs on Jira:
+https://sagosago.atlassian.net/browse/SW-168
+https://sagosago.atlassian.net/browse/SW-176

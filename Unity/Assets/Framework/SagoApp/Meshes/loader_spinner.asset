@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cc2c0a6a6164e94a0d018f12a3b7d6, type: 3}
+  m_Name: loader_spinner
+  m_EditorClassIdentifier: 
+  m_AnchorPoint: {x: .5, y: .5}
+  m_ContentSize: {x: 53.3499985, y: 53.3499985}
+  m_Frames:
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300000, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300002, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300004, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300006, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300008, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300010, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300012, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300014, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  m_FramesPerSecond: 24
+  m_Layers:
+  - m_Meshes:
+    - {fileID: 4300000, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300002, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300004, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300006, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300008, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300010, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300012, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+    - {fileID: 4300014, guid: 8cbcf96866e514097b793dc381b12cfb, type: 2}
+  m_PixelsPerMeter: 1
+  m_Version: loader_spinner_1_8_63536885692089

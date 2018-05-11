@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">SagoPermission</string>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Next</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Some permissions required</string>
+    <string name="permissions_multiple_permission_request">Our apps require access to certain permissions to function properly. Your privacy is our number one priority. To learn more, please read our privacy policy. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Our apps require access to one or more permissions on your device to function properly. Please allow access under Settings > Apps > %1$s > Permissions</string>
+    <!-- End of * multiple permission request strings -->
+
+    <!--  * permission detail texts -->
+    <string name="permission_write_ext_storage.name">Write to external storage</string>
+    <string name="permission_write_ext_storage.title">Write permission required</string>
+    <string name="permission_write_ext_storage.text">%1$s requires permission to write save files to the device storage to function properly. Tap \'Next\' to allow %2$s to write to the device storage.</string>
+    <string name="permission_write_ext_storage.app_settings_text">%1$s requires permission to write save files to your device to function properly. Please allow access under Settings > Apps > %2$s > Permissions</string>
+
+    <string name="permission_read_ext_storage.name">Read external storage</string>
+    <string name="permission_read_ext_storage.title">Read permission required</string>
+    <string name="permission_read_ext_storage.text">%1$s requires access to read from the device storage to function properly. Tap \'Next\' to allow %2$s to read from the device storage.</string>
+    <string name="permission_read_ext_storage.app_settings_text">%1$s requires access to read from the device storage to function properly. Please allow access under Settings > Apps > %2$s > Permissions</string>
+
+    <string name="permission_camera.name">Camera</string>
+    <string name="permission_camera.title">Read phone state permission required </string>
+    <string name="permission_camera.text">%1$s requires access to the camera to function properly. Tap \'Next\' to allow %2$s camera access.</string>
+    <string name="permission_camera.app_settings_text">%1$s requires access to the camera to function properly. Please allow access under Settings > Apps > %2$s > Permissions</string>
+
+    <string name="permission_read_phone_state.name">Read Phone State</string>
+    <string name="permission_read_phone_state.title">We need to read phone state</string>
+    <string name="permission_read_phone_state.text">%1$s requires permission to read phone state on the device to function properly. Tap \'Next\' to allow %2$s to read the phone state.</string>
+    <string name="permission_read_phone_state.app_settings_text">%1$s requires permission to read phone state to function properly. Please allow access to read phone state under Settings > Apps > %2$s > Permissions</string>
+
+    <string name="permission_access_fine_location.name">Access Fine Location</string>
+    <string name="permission_access_fine_location.title">We need to Access Fine Location</string>
+    <string name="permission_access_fine_location.text">%1$s requires permission to Access Fine Location on the device to function properly. Tap \'Next\' to allow %2$s to Access Fine Location.</string>
+    <string name="permission_access_fine_location.app_settings_text">%1$s requires permission to Access Fine Location to function properly. Please allow access to Access Fine Location under Settings > Apps > %2$s > Permissions</string>
+
+    <string name="permission_record_audio.name">Record audio</string>
+    <string name="permission_record_audio.title">Recording audio permission required</string>
+    <string name="permission_record_audio.text">%1$s requires permission to record audio to function properly. Tap \'Next\' to allow %2$s to grant permission for recording audio.</string>
+    <string name="permission_record_audio.app_settings_text">%1$s requires permission to record audio to function properly. Please allow access under Settings > Apps > %2$s > Permissions</string>
+</resources>

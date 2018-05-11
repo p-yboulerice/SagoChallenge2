@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Seuraava</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Käyttöoikeuksia vaaditaan</string>
+    <string name="permissions_multiple_permission_request">Sovelluksemme vaativat tiettyjä käyttöoikeuksia toimiakseen oikein. Yksityisyytesi on meille tärkeää, ja voitkin lukea lisää siitä Tietosuojakäytännöstämme. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Sovelluksemme vaativat tiettyjä käyttöoikeuksia jotta laitteesi voi toimia oikein. Anna käyttöoikeudet menemällä Asetukset > Sovellukset > %1$s > Käyttöoikeudet</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

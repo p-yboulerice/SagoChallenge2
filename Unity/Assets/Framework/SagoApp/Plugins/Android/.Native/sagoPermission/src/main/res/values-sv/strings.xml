@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Nästa</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Några behörigheter krävs</string>
+    <string name="permissions_multiple_permission_request">Våra program kräver åtkomst till vissa behörigheter för att fungera korrekt. Din integritet är vår främsta prioritet. Läs vår sekretesspolicy för mer information. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Våra program kräver åtkomst till en eller flera behörigheter på enheten för att fungera korrekt. Vänligen tillåt åtkomst under Inställningar> Program> %1$s >Behörigheter</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

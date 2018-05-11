@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cc2c0a6a6164e94a0d018f12a3b7d6, type: 3}
+  m_Name: garage_grass2
+  m_EditorClassIdentifier: 
+  m_AnchorPoint: {x: .5, y: 0}
+  m_ContentSize: {x: .519999981, y: .421999991}
+  m_Frames:
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 4300000, guid: 625f57085411412682d6d5dbbdcf8100, type: 2}
+  m_FramesPerSecond: 12
+  m_Layers:
+  - m_Meshes:
+    - {fileID: 4300000, guid: 625f57085411412682d6d5dbbdcf8100, type: 2}
+  m_PixelsPerMeter: 100
+  m_Version: garage_grass2_1_1_63549746773570

@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{CF118143-7E37-744F-BE45-3F55345FEC40}|">
+  <MonoDevelop.Ide.ItemProperties.Unity PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Content/Scripts/Wheel.cs">
+    <Files>
+      <File FileName="Assets/Content/Scripts/Wheel.cs" Line="84" Column="4" />
+      <File FileName="Assets/Framework/SagoTouch/Scripts/ISingleTouchObserver.cs" Line="9" Column="19" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

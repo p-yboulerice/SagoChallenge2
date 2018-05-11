@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="PermissionsDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:background">#ffffffff</item>
+        <item name="android:width">@dimen/permissions_dialog_width</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+</resources>

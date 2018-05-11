@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require_relative "lib/provisioning-profile-reader"
+
+# Provisioning profile provided as first arg to match against.
+# Ex. Sago Mini Enterprise AdHoc Wildcard
+targeted_provisioning_profile_name = ARGV[0]
+
+code_sign_identity = ARGV[1]
+
+project_path = ARGV[2]
+
+archive_path = ARGV[3]
+
+
+
+
+def generate_xcodebuild_archive_command( projectPath, archivePath, codeSignIdentity, developmentTeam, provisioningProfileFileName, provisioningProfileSpecifier )
+	return "xcodebuild -scheme Unity-iPhone archive -project '#{projectPath}' -archivePath '#{archivePath}' \
+		CODE_SIGN_IDENTITY='#{codeSignIdentity}' CODE_SIGN_STYLE='Manual' \
+		DEVELOPMENT_TEAM='#{developmentTeam}' PROVISIONING_PROFILE='#{provisioningProfileFileName}' \
+		PROVISIONING_PROFILE_SPECIFIER='#{provisioningProfileSpecifier}'"
+end
+
+
+
+
+
+
+matched_provisioning_profile_file_name = ProvisioningProfile.find_match( targeted_provisioning_profile_name )
+
+provisioning_profile = ProvisioningProfile.new( matched_provisioning_profile_file_name )
+
+xcodebuild_archive_command = generate_xcodebuild_archive_command( project_path, archive_path, code_sign_identity, provisioning_profile.team_id, File.basename(matched_provisioning_profile_file_name), provisioning_profile.provisioning_profile_name )
+
+system( xcodebuild_archive_command )
+

@@ -1,0 +1,3 @@
+include ':sagoApp', ':sagoPermission', ':permissiontest'
+include ':sagoApp'
+include ':googlePlayDownloader'

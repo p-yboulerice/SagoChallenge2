@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &120036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 420036}
+  - 114: {fileID: 11420036}
+  - 114: {fileID: 11420034}
+  - 114: {fileID: 11489356}
+  - 114: {fileID: 11411782}
+  - 114: {fileID: 11420918}
+  m_Layer: 0
+  m_Name: GooglePlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &420036
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11411782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75eacf21049c94fb0b212c5d727964fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+--- !u!114 &11420034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780d850e88070492e90726ff5992ecc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DisplayName: Template
+  AnalyticsName: Template
+  AppCode: 
+  Identifier: com.sagosago.Template.googleplay
+  Version: 1.0
+  Build: 1
+  SdkVersion: 15
+  LicensePublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkeyMfwor5aHiv/oPLuXMN0fcrwoCmhbGhfplHIJnjx6d29uKyDgbif23IommNSbsKhdAl7FT0PxNTfkZfgxfYBbtJnGahzgrXWPu5H9JDpKwYylvHjCIm88WlTxGUAmvU38X17JOh9qtygTIbbcPbhcUtQAn0WaEwC0+U06VPGWFV2GmEoczgOdy4rE5pmKxJnKKRHzAJ0HNQQh6/NYTEgnyVSGugUT104xkBVSE5q5Z+cG+v8lF6t295oBB5ymOjYbD4fwZizxwWHoiRDRM81gIEnZUEM9jSxOw/AB5WG4REni/OKLNpixfCi+obOTfvGi4YaQYeA9grvc4es43mwIDAQAB
+  UseExpansionFile: 0
+  GooglePlayDownloaderDebugMode: 0
+--- !u!114 &11420036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33a62a675b36422f924643d340533d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Platform: 2
+--- !u!114 &11420918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf07102a538448c2b7b96eaedc2acb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 3
+--- !u!114 &11489356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d056b2f960da45ed89ff9cf85b78dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mode: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: AppCode
+      value: smse
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Mode
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 120036}
+  m_IsPrefabParent: 1

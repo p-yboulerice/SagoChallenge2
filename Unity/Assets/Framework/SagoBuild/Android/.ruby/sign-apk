@@ -1,0 +1,117 @@
+#!/usr/bin/env ruby
+
+# By default the APK file provided will be post-zipaligned
+# If you need to zipalign
+
+require 'optparse'
+require 'ostruct'
+require 'fileutils'
+require_relative 'lib/apk-tool'
+
+USAGE = <<ENDUSAGE
+By default the APK file provided will be post-sign zipaligned.
+If you need to pre-sign zipalign then provide -prezipalign option.
+
+Usage:
+	sign-apk
+
+Options:
+	--keystore path
+	--storepass passphrase
+	--keypass passphrase
+	--zipalign path
+	--apk path
+	-prezipalign
+ENDUSAGE
+
+options = OpenStruct.new
+OptionParser.new do |opts|
+
+	opts.banner = "Please provide arguments"
+
+	opts.on("--keystore path", String, "Path to keystore file") do |ks|
+	  options[:keystore] = ks
+	end
+
+	opts.on("--storepass passphrase", String, "Keystore passphrase") do |sp|
+	  options[:storepass] = sp
+	end
+
+	opts.on("--keypass passphrase", String, "Key passphrase") do |kp|
+	  options[:keypass] = kp
+	end
+
+	opts.on("--zipalign path", String, "Path to zipalign") do |zap|
+	  options[:zipalign] = zap
+	end
+
+	opts.on("--apk path", String, "Path to APK file") do |apk|
+	  options[:apk] = apk
+	end
+
+	opts.on("--keystorealias alias", String, "Keystore alias") do |ka|
+	  options[:keystorealias] = ka
+	end
+
+	opts.on("-prezipalign", "Running zipalign command pre-sign of APK file") do |prezipalign|
+	  options[:prezipalign] = true
+	end
+
+end.parse!
+
+if (options[:keystore] == nil || options[:storepass] == nil ||
+	options[:keypass] == nil || options[:apk] == nil ||
+	options[:zipalign] == nil || options[:keystorealias] == nil)
+
+	puts USAGE
+	exit 1
+
+end
+
+pre_zipalign = false
+
+if options[:prezipalign] != nil && options[:prezipalign]
+	pre_zipalign = true
+end
+
+keystore_path = options[:keystore]
+store_pass = options[:storepass]
+key_pass = options[:keypass]
+zip_align_path = options[:zipalign]
+apk_path = options[:apk]
+keystore_alias = options[:keystorealias]
+
+target_path = "#{apk_path}.decompressed"
+apk_file_name = File.basename(apk_path)
+apk_name = File.basename(apk_path, ".apk")
+compressed_apk_path = "#{target_path}/dist/#{apk_file_name}"
+aligned_apk_path = "#{target_path}/dist/#{apk_name}.aligned.apk"
+apk_to_sign = aligned_apk_path
+
+system( get_apktool_disassemble_command(apk_path, target_path) )
+
+system( get_apktool_build_command(target_path) )
+
+if pre_zipalign
+	system( get_zipalign_command(zip_align_path, compressed_apk_path) )
+	system( get_verify_zipalign_command(zip_align_path, aligned_apk_path) )
+else
+	apk_to_sign = compressed_apk_path
+end
+
+system( get_jarsigner_command(keystore_path, keystore_alias, store_pass, key_pass, apk_to_sign) )
+
+system( get_verify_jar_command(keystore_path, apk_to_sign) )
+
+if !pre_zipalign
+	system( get_zipalign_command(zip_align_path, apk_to_sign) )
+	system( get_verify_zipalign_command(zip_align_path, aligned_apk_path) )
+end
+
+FileUtils.cp_r(aligned_apk_path, apk_path, remove_destination: true)
+
+FileUtils.rm_r(target_path)
+
+
+
+

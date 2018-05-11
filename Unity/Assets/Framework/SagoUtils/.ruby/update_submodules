@@ -1,0 +1,77 @@
+#!/usr/bin/env ruby
+class GitSubmoduleUpdater
+	
+	@@empty = ""
+	@@newline = "\n"
+	@@pattern = /^\*/
+	
+	def self.all_branches
+		%x( git branch -a 2>&1 )
+		.split(@@newline)
+		.map { |name| name.gsub(@@pattern, @@empty).strip }
+	end
+	
+	def self.current_branch
+		%x( git branch -a 2>&1 ).split(@@newline)
+		.find { |name| name =~ @@pattern }
+		.gsub(@@pattern, @@empty)
+		.strip
+	end
+	
+	def self.target_branch
+		ARGV[1].to_s.strip
+	end
+	
+	def self.target_or_master_branch
+		all_branches = self.all_branches
+		target_branch = self.target_branch
+		branch = all_branches.include?(target_branch) ? target_branch : "master"
+	end
+	
+	def self.update_submodules
+		
+		submodule_dir = File.expand_path ARGV[0]
+		if submodule_dir.nil? or !File.directory? submodule_dir
+			raise "Invalid submodule directory: #{submodule_dir}"
+		end
+		
+		log = @@empty
+		submodules = Array.new
+		
+		Dir.chdir submodule_dir do 
+			Dir.foreach submodule_dir do |name|
+			
+				next if name == "."
+				next if name == ".."
+				next unless File.directory? name
+			
+				Dir.chdir name do
+					next unless Dir.pwd == %x( git rev-parse --show-toplevel 2>&1 ).strip
+					branch = self.target_or_master_branch
+					submodules.push File.basename Dir.pwd
+					log << '---' << @@newline
+					log << @@newline
+					log << name << @@newline
+					log << Dir.pwd << @@newline
+					log << @@newline
+					log << "git checkout #{branch}" << @@newline
+					log << %x{ git checkout #{branch} 2>&1 } << @@newline
+					log << "git pull" << @@newline
+					log << %x{ git pull 2>&1 } << @@newline
+				end
+			
+			end
+		end
+	
+		unless log.empty?
+			puts "Updated #{submodules.length} submodule(s)."
+			puts submodules.join ", "
+			puts 
+			puts log
+		end
+	
+	end
+	
+end
+
+GitSubmoduleUpdater::update_submodules

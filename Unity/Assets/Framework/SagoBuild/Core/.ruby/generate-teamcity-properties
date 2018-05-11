@@ -1,0 +1,141 @@
+#!/usr/bin/env ruby
+
+file_name = "teamcity.default.properties"
+
+platform_prefabs_path = "Unity/Assets/Platform/Prefabs"
+
+checkout_path = ARGV[0]
+
+platform_name = ARGV[1]
+
+
+class PlatformPrefabInfo
+
+	@@platformNamePrefix = "m_Name"
+
+	@@displayNamePrefix = "m_DisplayName"
+
+	@@analyticsNamePrefix = "m_AnalyticsName"
+
+	@@appCodePrefix = "m_AppCode"
+
+	@@identifierPrefix = "m_Identifier"
+
+	@@versionPrefix = "m_Version"
+
+	@@buildPrefix = "m_Build"
+
+	@@urlSchemePrefix = "UrlScheme"
+
+
+
+	@platformName
+
+	@displayName
+
+	@analyticsName
+
+	@appCode
+
+	@identifier
+
+	@version
+
+	@build
+
+	@urlScheme
+
+
+
+	def platform_name
+		@platformName
+	end
+
+	def display_name
+		@displayName
+	end
+
+	def analytics_name
+		@analyticsName
+	end
+
+	def app_code
+		@appCode
+	end
+
+	def identifier
+		@identifier
+	end
+
+	def version
+		@version
+	end
+
+	def build
+		@build
+	end
+
+	def url_scheme
+		@urlScheme
+	end
+
+	def full_version
+		return "#{version}.#{build}"
+	end
+
+
+
+	def initialize( platformPrefabFilePath )
+
+		File.open(platformPrefabFilePath, "r") do |f|
+
+			@displayName = (f.find { |line| line =~ /#{@@displayNamePrefix}/ }).gsub("#{@@displayNamePrefix}: ", "").gsub(/[\n\s]+/, "")
+			@analyticsName = (f.find { |line| line =~ /#{@@analyticsNamePrefix}/ }).gsub("#{@@analyticsNamePrefix}: ", "").gsub(/[\n\s]+/, "")
+			@appCode = (f.find { |line| line =~ /#{@@appCodePrefix}/ }).gsub("#{@@appCodePrefix}: ", "").gsub(/[\n\s]+/, "")
+			@identifier = (f.find { |line| line =~ /#{@@identifierPrefix}/ }).gsub("#{@@identifierPrefix}: ", "").gsub(/[\n\s]+/, "")
+			@version = (f.find { |line| line =~ /#{@@versionPrefix}/ }).gsub("#{@@versionPrefix}: ", "").gsub(/[\n\s]+/, "")
+			@build = (f.find { |line| line =~ /#{@@buildPrefix}/ }).gsub("#{@@buildPrefix}: ", "").gsub(/[\n\s]+/, "")
+			@urlScheme = (f.find { |line| line =~ /#{@@urlSchemePrefix}/ }).gsub("#{@@urlSchemePrefix}: ", "").gsub(/[\n\s]+/, "")
+
+		end
+
+	end
+
+end
+
+
+def get_platform_prefab_info platformPrefabsPath, platformName
+
+	platformPrefab = PlatformPrefabInfo.new( "#{platformPrefabsPath}/#{platformName}" )
+
+end 
+
+def change_teamcity_build_parameter filePath, fileName, platformPrefabInfo
+	fullFilePath = "#{filePath}/#{fileName}"
+	buildProperyPrefix = "build."
+
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}display.name' value='#{platformPrefabInfo.display_name}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}analytics.name' value='#{platformPrefabInfo.analytics_name}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}app.code' value='#{platformPrefabInfo.app_code}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}identifier' value='#{platformPrefabInfo.identifier}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}version' value='#{platformPrefabInfo.version}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}build' value='#{platformPrefabInfo.build}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}url.scheme' value='#{platformPrefabInfo.url_scheme}']"
+	puts "##teamcity[setParameter name='#{buildProperyPrefix}full.version' value='#{platformPrefabInfo.full_version}']"
+
+end
+
+
+
+
+
+change_teamcity_build_parameter( checkout_path, file_name, get_platform_prefab_info("#{checkout_path}/Unity/Assets/Platform/Prefabs", "#{platform_name}.prefab") )
+
+
+
+
+
+
+
+
+

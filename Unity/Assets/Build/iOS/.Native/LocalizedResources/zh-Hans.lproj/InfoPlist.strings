@@ -1,0 +1,7 @@
+/* Chinese Simplified App Name */
+
+"CFBundleName" = "Template";
+"CFBundleDisplayName" = "Template";
+
+/* Settings */
+"NSCameraUsageDescription" = "這項活動需要安全使用您的鏡頭";

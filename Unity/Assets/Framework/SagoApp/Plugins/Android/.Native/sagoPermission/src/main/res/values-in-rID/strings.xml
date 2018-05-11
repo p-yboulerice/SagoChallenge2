@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Berikutnya</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Beberapa izin yang diperlukan</string>
+    <string name="permissions_multiple_permission_request">Aplikasi kami memerlukan akses ke hak akses tertentu agar berfungsi dengan baik. Privasi Anda adalah prioritas nomor satu kami. Untuk mempelajari lebih lanjut, baca kebijakan privasi kami. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">Aplikasi kami memerlukan akses ke satu atau beberapa izin pada perangkat agar berfungsi dengan benar. Harap izinkan akses di bawah Pengaturan > Aplikasi > %1$s > Izin</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

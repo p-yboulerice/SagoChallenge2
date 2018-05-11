@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">次へ</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">複数のアクセス権限が必要です。</string>
+    <string name="permissions_multiple_permission_request">私たちのアプリが正常に機能するために、特定のアクセス権限が必要となります。お客様のプライバシー保護は私たちの最優先事項です。詳細については、プライバシー・ポリシーをお読み下さい。 <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">私たちのアプリが正常に機能するために、お客様のデバイス上で１件以上のアクセス権限が必要となります。デバイスの設定＞アプリ＞%1$s＞権限で、アクセス権限を許可して下さい。</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

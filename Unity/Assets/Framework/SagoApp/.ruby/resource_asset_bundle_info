@@ -1,0 +1,133 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+require 'find'
+require 'json'
+require 'pathname'
+require 'set'
+
+class ResourceAssetBundleInfo
+	
+	def main
+		
+		asset_bundle_name = get_option("--asset_bundle_name")
+		if asset_bundle_name.to_s.empty?
+			display_usage
+			exit 1
+		end
+		
+		project_path = get_option("--project_path")
+		if project_path.to_s.empty? or !File.directory?(project_path)
+			display_usage
+			exit 1
+		end
+		
+		submodule_path = get_option("--submodule_path")
+		if submodule_path.to_s.empty? or !File.directory?(submodule_path)
+			display_usage
+			exit 1
+		end
+		
+		@asset_bundle_name = asset_bundle_name
+		@asset_guids = Set.new
+		@asset_paths = Set.new
+		@asset_paths_in_bundle = Set.new
+		@lookup = Hash.new
+		@project_path = Pathname.new(project_path)
+		@submodule_path = Pathname.new(submodule_path)
+		
+		# find all guids in submodule
+		Find.find(@submodule_path.to_s).select { |path| %r{\.meta$} =~ path }.each do |meta_path|
+			asset_path = File.join(File.dirname(meta_path), File.basename(meta_path, ".meta"))
+			if asset_path !~ %r{\.cs$} and asset_path !~ %r{/Resources/} and File.file?(asset_path)
+				asset_guid = File.read(meta_path, :encoding => 'utf-8', :mode => 'r').match(%r{guid\:\s([a-f0-9]{32})})[1]
+				@asset_guids.add(asset_guid)
+				@asset_paths.add(asset_path)
+				@lookup[asset_guid] = asset_path
+				@lookup[asset_path] = asset_guid
+			end
+		end
+		
+		# add all assets in the _Resources_ folder
+		@asset_paths.select { |asset_path| asset_path =~ %r{/_Resources_/} }.each do |resource_path|
+			@asset_paths_in_bundle.add(resource_path)
+			@asset_paths_in_bundle = get_asset_dependencies(resource_path, @asset_paths_in_bundle)
+		end
+		
+		# add all assets referenced by a scene
+		@asset_paths.select { |asset_path| asset_path =~ %r{\.unity$} }.each do |scene_path|
+			@asset_paths_in_bundle = get_asset_dependencies(scene_path, @asset_paths_in_bundle)
+		end
+		
+		# special case:
+		# don't include prefabs unless they're in the _Resources_ folder (prefabs 
+		# referenced by scenes get merged into the scene at build time, so putting 
+		# them in the resource asset bundle is not necessary and takes up extra space)
+		@asset_paths_in_bundle.reject! do |asset_path|
+			asset_path =~ %r{\.prefab$} and asset_path !~ %r{/_Resources_/}
+		end
+		
+		# output json
+		output = { :AddToResourceAssetBundle => Array.new, :RemoveFromResourceAssetBundle => Array.new }
+		@asset_paths.select { |asset_path| asset_path !~ %r{\.unity$} }.each do |asset_path|
+			match = File.read("#{asset_path}.meta").match(%r{assetBundleName:\s?(.+)?})
+			if @asset_paths_in_bundle.include?(asset_path) and (!match or $1.to_s != @asset_bundle_name)
+				output[:AddToResourceAssetBundle].push(Pathname.new(asset_path).relative_path_from(@project_path).to_s)
+			end
+			if !@asset_paths_in_bundle.include?(asset_path) and match and $1.to_s != ""
+				output[:RemoveFromResourceAssetBundle].push(Pathname.new(asset_path).relative_path_from(@project_path).to_s)
+			end
+		end
+		puts JSON.pretty_generate(output)
+		
+	end
+	
+private
+	
+	ASSET_TYPES = [
+		".anim",
+		".asset",
+		".guiskin",
+		".mat",
+		".physicMaterial",
+		".physicsMaterial2D",
+		".prefab",
+		".renderTexture",
+		".shader",
+		".unity"
+	]
+	
+	def get_asset_dependencies(asset_path, dependency_paths = Set.new)
+		if ASSET_TYPES.include?(File.extname(asset_path))
+			content = File.read(asset_path, :encoding => 'utf-8', :mode => 'r')
+			unless asset_path =~ %r{\.asset$} and content.include?('123c08bc88e79415cad04421f91ddec3')
+				paths = (
+					content
+					.split(%r{[\s,]})
+					.to_set
+					.select { |word| word.length == 32 and word =~ %r{^[a-f0-9]{32}$} }
+					.map { |guid| @lookup[guid] }
+					.select { |path| path != nil and path !~ %r{\.unity$} }
+				)
+				paths.each do |path|
+					unless dependency_paths.include?(path)
+						dependency_paths.add(path)
+						dependency_paths = get_asset_dependencies(path, dependency_paths)
+					end
+				end
+			end
+		end
+		dependency_paths
+	end
+	
+	def get_option(name)
+		ARGV.include?(name) ? ARGV[ARGV.index(name) + 1] : nil
+	end
+	
+	def has_option?(name)
+		ARGV.include?(name)
+	end
+	
+end
+
+ResourceAssetBundleInfo::new.main

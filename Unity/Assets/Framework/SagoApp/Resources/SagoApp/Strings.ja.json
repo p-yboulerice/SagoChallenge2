@@ -1,0 +1,40 @@
+{
+	"localizedStrings": [
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:53",
+			"comment": "Please turn on WiFi to continue downloading!",
+			"key": "NavigateToErrorSceneController.Error.Text.OdrErrorNoWiFi",
+			"plural": false,
+			"values": [
+				"ダウンロードを続けるにはWiFiをオンにしてください！"
+			]
+		},
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:59",
+			"comment": "Oops. No internet connection!",
+			"key": "NavigateToErrorSceneController.Error.Text.OdrErrorNoInternet",
+			"plural": false,
+			"values": [
+				"インターネットへの接続がありません！"
+			]
+		},
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:65",
+			"comment": "No space left. Try clearing some unused apps!",
+			"key": "NavigateToErrorSceneController.Error.Text.LowDiskSpace",
+			"plural": false,
+			"values": [
+				"スペースは残っていません。 未使用のアプリをクリアしてみてください！"
+			]
+		},
+		{
+			"reference": "Assets/Framework/SagoApp/Scripts/Project/NavigateToErrorSceneController.cs:71",
+			"comment": "Something went wrong. Please try again!",
+			"key": "NavigateToErrorSceneController.Error.Text.Default",
+			"plural": false,
+			"values": [
+				"エラーが発生しました。もう一度試してください！"
+			]
+		}
+	]
+}

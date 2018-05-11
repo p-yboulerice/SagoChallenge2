@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+define_symbol_string = ARGV[0]
+
+# This is assuming that this script resides at <PROJECT_REPO>/Unity/Assets/Framework/SagoBuild/Core/.ruby/ folder.
+# We need to save any .rsp files under <UNITY_PROJECT_FOLDER>/Assets/ folder.
+file_path = Dir.pwd + "/../../../../"
+
+def create_rsp_file filePath, fileName, defineSymbols
+
+	defineSymbolLineMarkup = "-define:"
+
+	File.open(filePath + fileName + ".rsp", "w") do |f|
+		f.write(defineSymbolLineMarkup + defineSymbols)
+	end
+end
+
+create_rsp_file( file_path, "gmcs", define_symbol_string )
+
+create_rsp_file( file_path, "mcs", define_symbol_string )
+
+create_rsp_file( file_path, "smcs", define_symbol_string )

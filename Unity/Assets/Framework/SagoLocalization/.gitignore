@@ -1,0 +1,9 @@
+# Android Studio untracked files
+*.iml
+/Plugins/Android/.Native/.gradle/
+/Plugins/Android/.Native/local.properties
+/Plugins/Android/.Native/.idea/workspace.xml
+/Plugins/Android/.Native/.idea/libraries/
+/Plugins/Android/.Native/build/
+/Plugins/Android/.Native/SagoBiz/build/
+/Plugins/Android/.Native/externalLibs/build/

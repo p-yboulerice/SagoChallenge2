@@ -1,0 +1,14 @@
+<resources>
+
+    <!--  * dialog -->
+    <string name="permission_dialog_next">Sonraki</string>
+    <string name="permission_dialog_app_settings">App settings</string>
+    <!--  End of * dialog -->
+
+    <!-- * multiple permission request strings -->
+    <string name="permissions_multiple_title">Bazı izinler gerekli</string>
+    <string name="permissions_multiple_permission_request">Uygulamalarımızın düzgün çalışabilmesi için belirli izinler gereklidir. Gizliliğiniz bir numaralı önceliğimizdir. Daha fazla bilgi almak için lütfen gizlilik politikamızı okuyun. <a href="http://www.sagomini.com/privacypolicy">http://www.sagomini.com/privacypolicy</a></string>
+    <string name="permissions_multiple_app_settings">-Uygulamalarımızın düzgün çalışabilmesi için cihazınızda bir veya daha fazla izin gereklidir. Lütfen Ayarlar > Uygulamalar > %1$s > İzinler bölümünde erişime izin verin.</string>
+    <!-- End of * multiple permission request strings -->
+
+</resources>

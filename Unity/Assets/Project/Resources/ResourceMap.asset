@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4260c1cfca364bbeab19d453f9ac13f, type: 3}
+  m_Name: ResourceMap
+  m_EditorClassIdentifier: 
+  m_Values:
+  - Guid: bf6b13b0bacf441ec88e431c90a7caf3
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.ru.json
+    ResourcePath: SagoApp/Strings.ru
+  - Guid: df357152395a941e3bcd56ac2f49a081
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoPhoto/Resources/LogoMaterial.mat
+    ResourcePath: LogoMaterial
+  - Guid: 510ab9a296714787a5cc555e019bbddb
+    AssetBundleName: 
+    AssetPath: Assets/Platform/Resources/PlatformSettingsMultiplexer.prefab
+    ResourcePath: PlatformSettingsMultiplexer
+  - Guid: d75dbdd21bfc54a0fbf14d95e3836888
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/LoadingSpinnerNoText.prefab
+    ResourcePath: SagoApp/LoadingSpinnerNoText
+  - Guid: cfc081e24a8a4ac689f76503765097f1
+    AssetBundleName: 
+    AssetPath: Assets/Project/Resources/SubmoduleMap.asset
+    ResourcePath: SubmoduleMap
+  - Guid: 5efd3f7320acf489d886bdfd3eafa845
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoDebug/Resources/DevUISkin.guiskin
+    ResourcePath: DevUISkin
+  - Guid: 272539933e10a4a2db55067dfa941fdb
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.en.json
+    ResourcePath: SagoApp/Strings.en
+  - Guid: 9a8603d4c4064674826844e77bb98c3a
+    AssetBundleName: 
+    AssetPath: Assets/Project/Resources/SceneMap.asset
+    ResourcePath: SceneMap
+  - Guid: ed2968d493d5a455bb1cea70bf61f4db
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.ja.json
+    ResourcePath: SagoApp/Strings.ja
+  - Guid: fefb22e45fdc84b69ade6e14f8fb3a15
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/QuitButton.prefab
+    ResourcePath: SagoApp/QuitButton
+  - Guid: 35c4da26d1fd3413b9c55b5d8b6c4198
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/FramesPerSecond.ttf
+    ResourcePath: SagoApp/FramesPerSecond
+  - Guid: fde7cd87248144d369abeb5aef694ecc
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/AnalyticsController.prefab
+    ResourcePath: SagoApp/AnalyticsController
+  - Guid: 89ace9d82a2e6437ebcd16c9da10f317
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoPhoto/Resources/LogoMesh.asset
+    ResourcePath: LogoMesh
+  - Guid: 94bf6af81d1b1455ba2ff92258e64d8d
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.de.json
+    ResourcePath: SagoApp/Strings.de
+  - Guid: 536549395392e490ba0371d60d204b95
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.asset
+    ResourcePath: SagoApp/Strings
+  - Guid: 57ab7359a44944910a3ebd77b32d355b
+    AssetBundleName: 
+    AssetPath: Assets/Project/Resources/AssetBundleAdaptorMap.asset
+    ResourcePath: AssetBundleAdaptorMap
+  - Guid: 57e5aa79178274de590f0e2bde7c277e
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoBiz/Resources/SagoBiz.prefab
+    ResourcePath: SagoBiz
+  - Guid: d9be42890bfbe4a639743ad088806dc8
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.zh-Hans.json
+    ResourcePath: SagoApp/Strings.zh-Hans
+  - Guid: b83dfc0a5ad994b9d9f343a791779993
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/LoadingSpinner.prefab
+    ResourcePath: SagoApp/LoadingSpinner
+  - Guid: 9100ef4bd4ec647358d3ff7028ef94e7
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoPhoto/Resources/Flash.mat
+    ResourcePath: Flash
+  - Guid: 4ce6849b84b443f5b78a1e5981d6ef3a
+    AssetBundleName: 
+    AssetPath: Assets/Project/Resources/ResourceMap.asset
+    ResourcePath: ResourceMap
+  - Guid: 9349c40ce7fd14a1e82750920cc1b0de
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.fr.json
+    ResourcePath: SagoApp/Strings.fr
+  - Guid: 25351e2c646b411d81195f8096fdac2a
+    AssetBundleName: 
+    AssetPath: Assets/Project/Resources/AssetBundleMap.asset
+    ResourcePath: AssetBundleMap
+  - Guid: 53a7a12dcee841b0a872d5718b4c5c92
+    AssetBundleName: 
+    AssetPath: Assets/Project/Resources/ProjectInfo.asset
+    ResourcePath: ProjectInfo
+  - Guid: e351f7bdd660e4972aca465aecbb0b37
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoNavigation/Resources/SagoNavigation/FadeTransition.prefab
+    ResourcePath: SagoNavigation/FadeTransition
+  - Guid: b1a079cdafa1f45f0abc64843a68527d
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.pt-BR.json
+    ResourcePath: SagoApp/Strings.pt-BR
+  - Guid: 932dbecdee3eb4272a018c8949bedc9d
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.zh-Hant.json
+    ResourcePath: SagoApp/Strings.zh-Hant
+  - Guid: 4d4ac64e39d3e4b07941b35b51f6f318
+    AssetBundleName: 
+    AssetPath: Assets/Framework/SagoApp/Resources/SagoApp/Strings.es.json
+    ResourcePath: SagoApp/Strings.es

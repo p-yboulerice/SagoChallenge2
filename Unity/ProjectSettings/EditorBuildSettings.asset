@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Project/Scenes/Bootstrap.unity
+    guid: 051be832161b44b979eae0561b97bcd4
+  - enabled: 1
+    path: Assets/Project/Scenes/Intro.unity
+    guid: 4dd70b80835074bafb26ddc1bf16c36f
+  - enabled: 1
+    path: Assets/Content/_Scenes_/Game.unity
+    guid: 4cec572b910f746a5980b682ba6d90f2
+  - enabled: 0
+    path: Assets/Project/Scenes/Title.unity
+    guid: 941ab5b491d5340d297e8c6fa237d213
+  - enabled: 1
+    path: Assets/Framework/SagoApp/Scenes/NavigateToContent.unity
+    guid: cf0048ce6c3d342c98f48160888d9f90
+  - enabled: 1
+    path: Assets/Framework/SagoApp/Scenes/NavigateToProject.unity
+    guid: 9c6c1890f6ba7413ea08404a7f202194
+  - enabled: 1
+    path: Assets/Framework/SagoApp/Scenes/NavigateToError.unity
+    guid: 24d303fe9b6aa456a86f4713ea485a78

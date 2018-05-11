@@ -1,0 +1,9 @@
+*.csproj
+*.booproj
+*.pidb
+*.sln
+*.suo
+*.svd
+*.unityproj
+*.user
+*.userprefs

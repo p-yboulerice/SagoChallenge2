@@ -11,6 +11,8 @@
 	/// </summary>
 	public class Plant : MonoBehaviour {
 
+		#region Fields
+
 		private TouchAreaObserver touchAreaObserver;
 		private LineRenderer lineRenderer;
 		private Touch Touch;
@@ -21,7 +23,7 @@
 			Growing,
 			Pulling,
 			Plucked,
-            Wither
+			Wither
 		}
 
 		private PlantState m_state;
@@ -36,11 +38,11 @@
 					StartCoroutine(Growing());
 				}
 				else if (state == PlantState.Plucked) {
-						StartCoroutine(Plucked());
+					StartCoroutine(Plucked());
 				}
 				else if (state == PlantState.Wither) {
 					StartCoroutine(Withering());
-                }
+				}
 			}
 		}
 
@@ -69,7 +71,9 @@
 		[SerializeField]
 		private float pluckDistance;
 
+		#endregion
 
+		#region Unity Defaults
 
 		// Unity Defaults
 
@@ -83,10 +87,6 @@
 			// Components
 			touchAreaObserver = GetComponent<TouchAreaObserver>();
 			lineRenderer = GetComponent<LineRenderer>();
-
-			// Line Renderer
-			//lineRenderer.SetPosition(0, transform.position);
-			//lineRenderer.SetPosition(1, transform.position);
 
 			// Coroutines
 			state = PlantState.Growing;
@@ -104,7 +104,7 @@
 			touchAreaObserver.TouchDownDelegate -= OnTouchDown;
 		}
 
-        // FLower target positions for lerp
+		// FLower target positions for lerp
 		private Vector2 touchPosition = Vector2.zero;
 
 		private Vector2 targetFlowerPosition;
@@ -112,19 +112,19 @@
 		private Vector2 targetRootPosition;
 
 
-		private void Update() {         
+		private void Update() {
 
-			if (Touch != null){
+			if (Touch != null) {
 				// Get touch position without z axis
-                touchPosition = GetTouchPosition();
+				touchPosition = GetTouchPosition();
 
-                // Get touch position in local space for line renderer
-                touchPosition = transform.InverseTransformPoint(touchPosition);
-			}         
+				// Get touch position in local space for line renderer
+				touchPosition = transform.InverseTransformPoint(touchPosition);
+			}
 
 			switch (state) {
 
-                case PlantState.Pulling:
+				case PlantState.Pulling:
 
 					if (this.Touch != null) {
 						// Stem Movement
@@ -159,23 +159,24 @@
 
 					if (this.Touch != null) {
 						state = PlantState.Pulling;
-					}        
+					}
 
 					break;
 
 				case PlantState.Plucked:
 					if (this.Touch != null) {
 						targetFlowerPosition = touchPosition;
-						flower.localPosition = Vector2.Lerp(flower.localPosition, targetFlowerPosition, touchSpeed * 2 * Time.deltaTime);           
+						flower.localPosition = Vector2.Lerp(flower.localPosition, targetFlowerPosition, touchSpeed * 2 * Time.deltaTime);
 					}
-					else
-					{
+					else {
 						state = PlantState.Wither;
-					}  
+					}
 
 					break;
 			}
 		}
+
+		#endregion
 
 
 		// Growing
@@ -183,7 +184,6 @@
 		private IEnumerator Growing() {
 			float timeElapsed = 0;
 
-			// ---
 			yield return new WaitForSeconds(2);
 
 			while (timeElapsed <= 1) {
@@ -197,7 +197,7 @@
 			state = PlantState.Idle;
 		}
 
-        // Plucked
+		// Plucked
 
 		private IEnumerator Plucked() {
 			float timeElapsed = 0;
@@ -210,20 +210,22 @@
 			}
 		}
 
-        // Withering
+		// Withering
 
 		private IEnumerator Withering() {
-            float timeElapsed = 0;
-            Vector2 startingPosition = lineRenderer.GetPosition(1);
+			float timeElapsed = 0;
+			Vector2 startingPosition = lineRenderer.GetPosition(1);
 
-            while (timeElapsed <= 1) {
-                timeElapsed += Time.deltaTime * 5;
+			while (timeElapsed <= 1) {
+				timeElapsed += Time.deltaTime * 5;
 				flower.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, growAnimationCurve.Evaluate(timeElapsed));
-                yield return 0;
-            }
+				yield return 0;
+			}
 
 			state = PlantState.Growing;
-        }
+		}
+
+		#region Touch
 
 		// Touches
 
@@ -238,6 +240,8 @@
 		private Vector2 GetTouchPosition() {
 			return new Vector2(this.Camera.ScreenToWorldPoint(this.Touch.Position).x, this.Camera.ScreenToWorldPoint(this.Touch.Position).y);
 		}
+
+		#endregion
 
 	}
 

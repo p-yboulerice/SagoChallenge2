@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<timeline id="Sign_Monster" anchorPoint="0.500,0.500" contentSize="88.050,192.150" framesPerSecond="24">
+    <label id="Sign_Monster">
+        <frame index="0">
+            <mesh id="Sign_Monster_L0000_F0000"></mesh>
+        </frame>
+    </label>
+    <layer id="Sign_Monster_L0000"></layer>
+</timeline>

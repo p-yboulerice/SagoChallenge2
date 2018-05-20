@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cc2c0a6a6164e94a0d018f12a3b7d6, type: 3}
+  m_Name: Grass_Big_1
+  m_EditorClassIdentifier: 
+  m_AnchorPoint: {x: 0.5, y: 0.5}
+  m_ContentSize: {x: 1.132, y: 1.0695}
+  m_Frames:
+  - m_AudioClips: []
+    m_Meshes:
+    - {fileID: 43995264099176050, guid: ffb20f16012f3441880321c8a9bae99c, type: 2}
+  m_FramesPerSecond: 24
+  m_Layers:
+  - m_Meshes:
+    - {fileID: 43995264099176050, guid: ffb20f16012f3441880321c8a9bae99c, type: 2}
+  m_PixelsPerMeter: 100
+  m_Version: Grass_Big_1_1_1_63662407955964

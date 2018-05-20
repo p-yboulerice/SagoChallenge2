@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<timeline id="Button_Ship" anchorPoint="0.500,0.500" contentSize="205.000,205.000" framesPerSecond="24">
+    <label id="Button_Ship">
+        <frame index="0">
+            <mesh id="Button_Ship_L0000_F0000"></mesh>
+        </frame>
+    </label>
+    <layer id="Button_Ship_L0000"></layer>
+</timeline>

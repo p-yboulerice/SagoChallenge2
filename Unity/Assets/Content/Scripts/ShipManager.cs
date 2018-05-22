@@ -27,12 +27,19 @@ public class ShipManager : MonoBehaviour {
 			shipControllers.Add(Instantiate(shipPrefab, shipSpawnAnchor.position, Quaternion.identity, shipSpawnAnchor).GetComponent<ShipController>());
 		}
 	}
-
+    
     public void ThrustShips() {
-		
+		for (int i = 0; i < shipControllers.Count; i++) {
+			//shipControllers[i].
+		}
 	}
 
 	public void RotateShips() {
 		
+	}
+
+	public void RemoveShip(ShipController ship) {
+		shipControllers.Remove(ship);
+		Destroy(ship.gameObject);
 	}
 }

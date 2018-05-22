@@ -5,14 +5,14 @@ using Juice.FSM;
 
 public class SA_Thrust : StateAction {
 
-	private ShipManager shipManager;
+	private ShipManager m_ShipManager;
 
-	private void OnEnable() {
-		shipManager = GetComponentInParent<ShipManager>();
-	}
+    private ShipManager ShipManager {
+        get { return m_ShipManager = m_ShipManager ?? this.GetComponentInParent<ShipManager>(); }
+    }
 
 	public override void Run() {
-		shipManager.ThrustShips();
+		this.ShipManager.ThrustShips();
 	}
 
 }

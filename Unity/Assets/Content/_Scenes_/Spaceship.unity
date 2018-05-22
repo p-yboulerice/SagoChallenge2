@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 209888456}
   - component: {fileID: 209888455}
   m_Layer: 0
-  m_Name: Grass_Big_1
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1854,7 +1854,7 @@ GameObject:
   - component: {fileID: 925340104}
   - component: {fileID: 925340103}
   m_Layer: 0
-  m_Name: Grass_Big_1 (1)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2650,7 +2650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52616201487343a5b8a5a0963afb3ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 1
+  Radius: 0.5
   m_Offset: {x: 0, y: 0}
 --- !u!114 &1226637241
 MonoBehaviour:
@@ -2678,7 +2678,7 @@ GameObject:
   - component: {fileID: 1235190007}
   - component: {fileID: 1235190006}
   m_Layer: 0
-  m_Name: Grass_Big_2
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3226,7 +3226,7 @@ GameObject:
   - component: {fileID: 1573830279}
   - component: {fileID: 1573830278}
   m_Layer: 0
-  m_Name: Grass_Big_2 (1)
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4480969371122020}
   - component: {fileID: 114575427884997250}
+  - component: {fileID: 114618803299611398}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -590,11 +591,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd927c34edf34cbb87a3b9f2733db8fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OnEnterActions: []
+  m_OnEnterActions:
+  - {fileID: 114618803299611398}
   m_OnUpdateActions: []
   m_OnLateUpdateActions: []
   m_OnFixedUpdateActions: []
   m_OnExitActions: []
+--- !u!114 &114618803299611398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1025921785561990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191ad8a19152c4dc089330f994afe464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 1167897732788728, guid: fa255cbd8af0f46febb7568c4ebafa3a,
+    type: 2}
 --- !u!114 &114629773392735276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -798,8 +813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4332164529611902}
-  m_OutOfViewDirection: 2
-  m_Tolerance: 1
+  m_OutOfViewDirection: 0
+  m_Tolerance: 0
 --- !u!114 &114987572221332510
 MonoBehaviour:
   m_ObjectHideFlags: 1

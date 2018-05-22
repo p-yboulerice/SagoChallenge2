@@ -788,6 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrustForce: 20
   rotationSpeed: 2
+  fallingState: {fileID: 114680474482494592}
 --- !u!114 &114768665582809524
 MonoBehaviour:
   m_ObjectHideFlags: 1

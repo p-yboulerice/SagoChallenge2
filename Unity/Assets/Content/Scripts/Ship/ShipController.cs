@@ -6,18 +6,24 @@ public class ShipController : MonoBehaviour {
 
 	private Rigidbody2D rigidbody2D;
 
+	[SerializeField]
+	private float thrustForce;
+
+	[SerializeField]
+	private float rotationSpeed;
+
 	private void Awake() {
 		rigidbody2D = GetComponent<Rigidbody2D>();
 	}
 
-	public void Thrust(Vector2 force)
+	public void Thrust()
 	{
-		rigidbody2D.AddForce(force);
+		rigidbody2D.AddForce(transform.up * thrustForce);
 	}
 
 	public void Rotate(float torque)
 	{
-		rigidbody2D.AddTorque(torque);
+		rigidbody2D.AddTorque(torque * rotationSpeed);
 	}
 
 	public IEnumerator ScaleDown() {

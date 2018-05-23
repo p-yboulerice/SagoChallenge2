@@ -5,22 +5,34 @@ using Juice.FSM;
 
 public class SA_Torque : StateAction {
 
-	private ShipManager shipManager;
+	#region Properties
+
+	private ShipManager m_ShipManager;
+
+	private ShipManager ShipManager {
+		get { return m_ShipManager = m_ShipManager ?? this.GetComponentInParent<ShipManager>(); }
+	}
+
+	#endregion
+
+	#region Fields
 
 	private enum Direction {
 		Right = -1,
-        Left = 1
+		Left = 1
 	}
 
 	[SerializeField]
 	private Direction direction;
-    
-    private void OnEnable() {
-        shipManager = GetComponentInParent<ShipManager>();
-    }
+
+	#endregion
+
+	#region Methods
 
 	public override void Run() {
-		shipManager.RotateShips((int)direction);
+		this.ShipManager.RotateShips((int)direction);
 	}
+
+	#endregion
 
 }
